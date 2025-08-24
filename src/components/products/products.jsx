@@ -1,13 +1,14 @@
 
 import Product from "./product.jsx";
 import './products.css';
+import {useContext} from "react";
+import ProductContext from "../../context/products.jsx";
 
 
 
+const Products = () =>{
 
-const Products = (props) =>{
-
-
+    const props = useContext(ProductContext)
 
     return (
 
@@ -21,9 +22,7 @@ const Products = (props) =>{
                             id={p.id}
                             productNmae={p.productNmae}
                             count={p.count}
-                            increase={props.increase}
-                            decrease={props.decrease}
-                            deleteProduct={props.deleteProduct}
+
                         />
 
 

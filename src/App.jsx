@@ -2,6 +2,7 @@ import './App.css'
 import Products from "./components/products/products.jsx";
 import Navbar from "./components/navbar/navbar.jsx";
 import {useState} from "react";
+import ProductContext from "./context/products.jsx";
 
 
 function App() {
@@ -17,16 +18,22 @@ function App() {
 
     return (
         <>
-            <Navbar
-                products={products}
-            />
-            <Products
-                products={products}
-                reset={reset}
-                increase={increase}
-                decrease={decrease}
-                deleteProduct={deleteProduct}
-            />
+            <ProductContext.Provider
+
+                value={{
+                    products: products,
+                    reset: reset,
+                    increase: increase,
+                    decrease: decrease,
+                    deleteProduct: deleteProduct
+                }}
+
+            >
+
+                <Navbar/>
+                <Products/>
+
+            </ProductContext.Provider>
         </>
     )
     

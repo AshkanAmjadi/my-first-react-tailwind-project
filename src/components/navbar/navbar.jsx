@@ -1,7 +1,12 @@
 import './navbar.css'
+import {useContext} from "react";
+import ProductContext from "../../context/products.jsx";
 
 
-const Navbar = (props) => {
+const Navbar = () => {
+
+
+    const props = useContext(ProductContext)
 
     return (
         <nav
