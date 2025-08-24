@@ -1,13 +1,14 @@
+import './navbar.css'
 
 
-
-const Navbar= ()=>{
+const Navbar = (props) => {
 
     return (
         <nav
-        className='page__container '>
+            id='nav'
+            className='page__container'>
 
-            <ul>
+            <ul className='flex gap-6 flex-wrap'>
                 <li>
                     page
                 </li>
@@ -21,15 +22,27 @@ const Navbar= ()=>{
                     info
                 </li>
                 <li>
-                    count :
+                    count : {calcSum()}
                 </li>
             </ul>
 
         </nav>
     )
 
-}
 
+    function calcSum() {
+
+        let sum = 0
+
+        props.products.forEach(p => {
+            sum += p.count;
+        })
+
+        return sum
+
+    }
+
+}
 
 
 export default Navbar

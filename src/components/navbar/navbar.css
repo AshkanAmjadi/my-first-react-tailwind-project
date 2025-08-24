@@ -1,0 +1,6 @@
+#nav ul > li{
+
+    @apply bg-sky-700 rounded;
+    padding: 5px 10px 7px ;
+
+}
