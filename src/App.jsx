@@ -16,6 +16,24 @@ function App() {
         ]
     )
 
+
+    //mount and update
+    // useEffect(()=>{
+    //
+    //     console.log('App - mount or update')
+    //
+    // })
+
+    //mount only
+    // useEffect(()=>{
+    //
+    //     console.log('App - mount only')
+    //
+    // },[])
+
+
+
+
     return (
         <>
             <ProductContext.Provider

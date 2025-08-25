@@ -6,11 +6,28 @@ import ProductContext from "../../../context/products.jsx";
 class Product extends Component{
     
 
+    constructor() {
+        super();
+
+        // console.log('Product - mount')
+    }
 
     static contextType = ProductContext;
 
 
+    // componentDidMount() {
+    //     console.log('Product - didMount')
+    // }
+
+    // componentDidUpdate() {
+    //
+    //     console.log('Product - didUpdate')
+    // }
+
     render() {
+
+        // console.log('Product - render')
+
         return (
             <>
 

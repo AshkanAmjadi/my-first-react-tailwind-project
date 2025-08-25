@@ -1,19 +1,35 @@
 
 import Product from "./product.jsx";
-import './products.css';
 import {Component} from "react";
 import ProductContext from "../../../context/products.jsx";
+import './../../../components/products/products.css';
 
 
 
 class Products extends Component{
     
+    constructor() {
+        super();
 
+        // console.log('Products - mount')
+
+    }
 
     static contextType = ProductContext;
 
+    // componentDidMount() {
+    //     console.log('Products - didMount')
+    // }
+
+    // componentDidUpdate() {
+    //
+    //     console.log('Products - didUpdate')
+    // }
 
     render() {
+
+        // console.log('Products - render')
+
         return (
 
             <div className='page__container'>

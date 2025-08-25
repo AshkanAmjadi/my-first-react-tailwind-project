@@ -6,6 +6,14 @@ const Product =  (props) => {
 
     const contextProps = useContext(ProductContext)
 
+    //unmount (delete)
+    // useEffect(()=>{
+    //     return ()=>{
+    //         console.log('PRODUCT - UNMOUNT')
+    //     }
+    //
+    // },[])
+
     return (
         <>
 

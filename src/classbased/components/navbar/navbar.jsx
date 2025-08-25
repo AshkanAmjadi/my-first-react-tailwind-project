@@ -6,9 +6,25 @@ import {Component} from "react";
 class Navbar extends Component {
 
 
+    constructor() {
+        super();
+
+        // console.log('Navbar - mount')
+    }
     static contextType = ProductContext;
 
+    // componentDidMount() {
+    //     console.log('Navbar - didMount')
+    // }
+
+    // componentDidUpdate() {
+    //
+    //     console.log('Navbar - didUpdate')
+    // }
+
     render() {
+        // console.log('Navbar - render')
+
         return (
             <nav
                 id='nav'

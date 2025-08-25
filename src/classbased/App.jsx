@@ -1,11 +1,19 @@
 import {Component} from "react";
-import Navbar from "../components/navbar/navbar.jsx";
-import Products from "../components/products/products.jsx";
+import Navbar from "./components/navbar/navbar.jsx";
+import Products from "./components/products/products.jsx";
 import ProductContext from "../context/products.jsx";
 
 
 class App extends Component {
 
+
+    constructor(props) {
+        super();
+        // console.log('App - constructor')
+
+        //برای مقدار دهی اولیه استیت
+        // this.state.product = props.products;
+    }
 
     state = {
         products : [
@@ -15,7 +23,18 @@ class App extends Component {
         ]
     }
 
+    // componentDidMount() {
+    //     console.log('App - didMount')
+    // }
+
+    // componentDidUpdate() {
+    //
+    //     console.log('App - didUpdate')
+    // }
     render() {
+
+        // console.log('App - render')
+
 
         return (
             <>
