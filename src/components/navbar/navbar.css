@@ -1,6 +1,12 @@
-#nav ul > li{
+#nav ul > :is(li,.nav-list){
 
-    @apply bg-sky-700 rounded;
+    @apply bg-sky-700 rounded text-slate-200 font-bold;
     padding: 5px 10px 7px ;
+
+
+}
+
+#nav ul > :is(li.active,.nav-list.active){
+    @apply bg-sky-900
 
 }

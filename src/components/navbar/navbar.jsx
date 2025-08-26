@@ -1,12 +1,8 @@
 import './navbar.css'
-import {useContext} from "react";
-import ProductContext from "../../context/products.jsx";
-
-
+import {NavLink} from "react-router";
 const Navbar = () => {
 
 
-    const props = useContext(ProductContext)
 
     return (
         <nav
@@ -14,20 +10,17 @@ const Navbar = () => {
             className='page__container'>
 
             <ul className='flex gap-6 flex-wrap'>
+                <NavLink className='nav-list' to="/" end>
+                    home
+                </NavLink>
+                <NavLink className='nav-list' to="/users" end>
+                    users
+                </NavLink>
+                <NavLink className='nav-list' to="/products" end>
+                    products
+                </NavLink>
                 <li>
-                    page
-                </li>
-                <li>
-                    about
-                </li>
-                <li>
-                    docs
-                </li>
-                <li>
-                    info
-                </li>
-                <li>
-                    count : {calcSum()}
+                    login
                 </li>
             </ul>
 
@@ -35,17 +28,7 @@ const Navbar = () => {
     )
 
 
-    function calcSum() {
 
-        let sum = 0
-
-        props.products.forEach(p => {
-            sum += p.count;
-        })
-
-        return sum
-
-    }
 
 }
 

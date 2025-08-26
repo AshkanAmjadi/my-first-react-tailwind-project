@@ -1,21 +1,12 @@
 import './App.css'
 import Products from "./components/products/products.jsx";
 import Navbar from "./components/navbar/navbar.jsx";
-import {useState} from "react";
-import ProductContext from "./context/products.jsx";
+import { Routes, Route} from "react-router";
+import Users from "./components/users/users.jsx";
+import ShowUser from "./components/users/show-user.jsx";
 
 
 function App() {
-
-
-    const [products, setProducts] = useState(
-        [
-            {id : 1,productNmae : 'laptop' , count : 5 },
-            {id : 2,productNmae : 'pc' , count : 2 },
-            {id : 3,productNmae : 'airpods' , count : 3 },
-        ]
-    )
-
 
     //mount and update
     // useEffect(()=>{
@@ -32,64 +23,22 @@ function App() {
     // },[])
 
 
-
-
     return (
         <>
-            <ProductContext.Provider
+            <Navbar/>
+            <Routes>
 
-                value={{
-                    products: products,
-                    reset: reset,
-                    increase: increase,
-                    decrease: decrease,
-                    deleteProduct: deleteProduct
-                }}
 
-            >
+                <Route path="/user/:id" element={<ShowUser />}></Route>
+                <Route path="/users" element={<Users/>}></Route>
+                <Route path="/products" element={<Products/>}></Route>
+                <Route path="/" element={<h1>home</h1>}></Route>
 
-                <Navbar/>
-                <Products/>
+            </Routes>
 
-            </ProductContext.Provider>
+
         </>
     )
-    
-    function reset(){
-
-        const newP = products.map(p=>{
-            p.count = 0;
-            return p;
-        })
-        setProducts(newP)
-
-    }
-    function increase(id) {
-        const newP = products.map(p=>{
-            if (p.id === id){
-                p.count++
-            }
-            return p
-        })
-        setProducts(newP)
-    }
-
-    function decrease(id) {
-        const newP = products.map(p=>{
-            if (p.id === id && p.count > 0){
-                p.count--
-            }
-            return p
-        })
-        setProducts(newP)
-    }
-
-    function deleteProduct(id) {
-        const newP = products
-            .map(p=> p.id !== id ? p : null )
-            .filter(p => p !== null)
-        setProducts(newP)
-    }
 
 
 }
