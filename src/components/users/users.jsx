@@ -4,6 +4,8 @@ import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import User from "./user.jsx";
 import {useDebouncedCallback} from "use-debounce";
+import {useNavigate, useSearchParams} from "react-router";
+
 
 
 
@@ -13,10 +15,14 @@ const Users = () => {
 
     const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([])
+    let [searchParams] = useSearchParams();
+    const navigate = useNavigate()
+
 
     const searchDebounce = useDebouncedCallback(
         // function
         (value) => {
+            navigate('/users?q=' + value)
             search(value)
         },
         // delay in ms
@@ -24,11 +30,19 @@ const Users = () => {
     );
 
     useEffect(() => {
+
         setUsers([])
         setLoading(true)
+
+
         const fetchUsers = async () => {
             try {
-                let response = await axios.get('https://dummyjson.com/users')
+                let response
+                if (searchParams.get('q')){
+                    response = await axios.get('https://dummyjson.com/users/search?q=' + searchParams.get('q'))
+                }else {
+                    response = await axios.get('https://dummyjson.com/users')
+                }
                 setTimeout(() => {
                     setUsers(response.data.users)
                     setLoading(false)
@@ -47,7 +61,7 @@ const Users = () => {
         <>
 
             <div className='page__container'>
-                <input className='p-2 rounded-md' onInput={(e)=>{searchDebounce(e.currentTarget.value)}}></input>
+                <input className='p-2 rounded-md' defaultValue={searchParams.get('q')}  onInput={(e)=>{searchDebounce(e.currentTarget.value)}}></input>
             </div>
 
             {

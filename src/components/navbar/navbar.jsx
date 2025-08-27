@@ -19,9 +19,12 @@ const Navbar = () => {
                 <NavLink className='nav-list' to="/products" end>
                     products
                 </NavLink>
-                <li>
+                <NavLink className='nav-list' to="/login" end>
                     login
-                </li>
+                </NavLink>
+                <NavLink className='nav-list' to="/dashboard" end>
+                    dashboard
+                </NavLink>
             </ul>
 
         </nav>
